@@ -16,7 +16,8 @@ function initializeChatClient() {
 
 ws.onmessage = function(event){
 	var node = document.createElement('p'); 
-	node.innerText = event.data;
+	var msg = JSON.parse(event.data);
+	node.innerText = msg.clientId + ": " + msg.message;
 	messages.appendChild(node);
 }
 
@@ -26,7 +27,8 @@ sendButton.addEventListener('click', function(){
 		alert('You gotta say something fool!');
 		return;
 	}
-	ws.send(message);
+
+	ws.send(JSON.stringify({message: message}));
 	messageInput.value = "";
 });
 }
