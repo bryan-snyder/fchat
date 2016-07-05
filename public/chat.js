@@ -9,7 +9,7 @@ ws.onopen = function(event){
 //CHAT JS STUFF
 
 function initializeChatClient() {
-	var chatBox = document.getElementById('chatbox');
+	var chatbox = document.getElementById('chatbox');
 	var messageInput = chatbox.querySelector('.messageInput');
 	var sendButton = chatbox.querySelector('.send');
 	var messages = document.getElementById('messages');
@@ -32,4 +32,9 @@ sendButton.addEventListener('click', function(){
 	messageInput.value = "";
 });
 }
+
+//TODO: CSS THE CHAT
+//TODO: PUT ONLINE
+//TODO: Lessen Deps?
+
 

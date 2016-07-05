@@ -24,11 +24,22 @@ app.ws('/chat', function(ws, req){
 
 
 		Object.keys(clients).forEach(function(clientId){
-			clients[clientId].ws.send(outMsg); 
+			clients[clientId].ws.send(outMsg, function (error){
+				if (error !== undefined) {
+					console.warn('error', error);
+				} 
+			}); 
 		}); 
 			//this peeps the clients we have and for each one
 			//send on thier websocket and everyone gets messages
 	});
+
+
+ws.on('close', function close() {
+  delete clients[clientID];
+});
+
+
 });
 
 //SERVE STATICS DUUUUUUUUUUUUUUUUUUDE
