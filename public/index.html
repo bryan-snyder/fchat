@@ -3,17 +3,19 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>fChat</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="fchat.css">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     </head>
     <body>
-		<div id=chatbox>
-    		<label>Speak: 
-    		<input class="messageInput" type="text">
-    		<button class="send">Speak</button>
-    		</label>
-       	</div>
-		<div id="messages">
-		</div>
+      <div class="chatbox">
+        <div id="messages" class="chatbox-messageArea">
+        </div>
+        <div id="chatbox" class="chatbox-inputArea">
+          <textarea class="messageInput"></textarea>
+          <button class="send">Send</button>
+        </div>
+      </div>
     	<script src="chat.js"></script>
     </body>
 </html>

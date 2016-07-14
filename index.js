@@ -1,14 +1,13 @@
-//WHOA WHOA WHOA STOP THE CLOCK AND VAR THESE OUT
+/* @flow */
+
+//SET VARS
 var express = require('express');
 var app = express();
 var expressWs = require('express-ws')(app);
 var nextId = 1;
 var clients = {};
 
-//BENJI'S FUCKING LATE AGAIN OH WELL...  
-//SO START UP THIS CHAT
-
-//SET UP ECHO SERVER AT /CHAT DIRECTORY 
+//SET UP ECHO SERVER AT /CHAT
 app.ws('/chat', function(ws, req){
 	var clientId = nextId;
 	clients[clientId] = {ws: ws};
@@ -20,27 +19,27 @@ app.ws('/chat', function(ws, req){
 			clientId: clientId,
 			message: inMsg.message
 			}); // var outMsg strings outgoing data for sending
-		
 
 
 		Object.keys(clients).forEach(function(clientId){
 			clients[clientId].ws.send(outMsg, function (error){
 				if (error !== undefined) {
 					console.warn('error', error);
-				} 
-			}); 
-		}); 
+				}
+			});
+		});
 			//this peeps the clients we have and for each one
 			//send on thier websocket and everyone gets messages
+			ws.on('close', function close() {
+			  delete clients[clientId];
+		});
 	});
-
-
-ws.on('close', function close() {
-  delete clients[clientID];
 });
 
 
-});
+
+
+
 
 //SERVE STATICS DUUUUUUUUUUUUUUUUUUDE
 app.use(express.static('public'));
