@@ -14,7 +14,7 @@ export default StyleSheet.create({
         "marginLeft": 0
     },
     "body": {
-        "backgroundColor": "#eee",
+        "backgroundColor": "#000",
         "fontFamily": "Arial, sans-serif",
         "height": "100%",
         "boxSizing": "border-box",
@@ -35,12 +35,17 @@ export default StyleSheet.create({
         "marginRight": "auto",
         "marginBottom": "auto",
         "marginLeft": "auto",
-        "backgroundColor": "#ddd",
+        "backgroundColor": "#222222",
         "display": "flex",
+        "WebkitBoxOrient": "vertical",
+        "WebkitBoxDirection": "normal",
+        "MsFlexDirection": "column",
         "flexDirection": "column"
     },
     "chatbox-messageArea": {
-        "backgroundColor": "white",
+        "backgroundColor": "#333333",
+        "WebkitBoxFlex": 1,
+        "MsFlexPositive": 1,
         "flexGrow": 1
     },
     "chatbox-messageArea > message": {
@@ -53,17 +58,26 @@ export default StyleSheet.create({
         "borderTop": "2px solid #aaa",
         "height": 100,
         "display": "flex",
+        "WebkitBoxOrient": "horizontal",
+        "WebkitBoxDirection": "normal",
+        "MsFlexDirection": "row",
         "flexDirection": "row"
     },
     "chatbox-inputArea > messageInput": {
         "border": "none",
+        "WebkitBoxFlex": 1,
+        "MsFlexPositive": 1,
         "flexGrow": 1,
         "fontSize": "120%"
     },
     "chatbox-inputArea > send": {
         "width": 100,
-        "backgroundColor": "lightblue",
-        "color": "black",
+        "backgroundColor": "#111111",
+        "color": "#888888",
+        "fontSize": 16,
         "border": "none"
+    },
+    "p": {
+        "color": "#898989"
     }
 });
